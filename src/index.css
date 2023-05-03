@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #333;
-  --color: #fff;
+@layer base {
+  :root {
+    --background: #333;
+    --color: #fff;
 
-  background-color: var(--background);
-  color: var(--color);
-  position: relative;
-  min-height: 100vh;
+    background-color: var(--background);
+    color: var(--color);
+    position: relative;
+    min-height: 100vh;
+  }
 }

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="flex justify-between 	items-baseline m-1 lg:m-5 py-3 font-semibold bg-primary">
+    <header className="flex justify-between 	items-baseline my-1 p-2 font-semibold border-b-2">
       <Link className="text-lg hover:opacity-80 hover:underline" to="/">
         @Dimterion
       </Link>
