@@ -8,4 +8,6 @@
 
   background-color: var(--background);
   color: var(--color);
+  position: relative;
+  min-height: 100vh;
 }
