@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import Projects from "./pages/Projects";
 import About from "./pages/About";
+import Post from "./pages/Post";
 import "../server";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/about" element={<About />} />
+        <Route path="/blog/:id" element={<Post />} />
       </Routes>
       <Footer />
     </Router>

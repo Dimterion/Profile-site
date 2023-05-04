@@ -36,7 +36,7 @@ createServer({
       date: "04.05.23",
       text: "This is a text-4 example.",
       imageUrl: "./src/assets/images/placeholderImg.jpg",
-      type: "life",
+      type: "thoughts",
     });
     server.create("post", {
       id: "5",
@@ -44,7 +44,7 @@ createServer({
       date: "05.05.23",
       text: "This is a text-5 example.",
       imageUrl: "./src/assets/images/placeholderImg.jpg",
-      type: "life",
+      type: "coding",
     });
   },
 
