@@ -10,24 +10,27 @@ function Blog() {
       .then((data) => setPosts(data.posts));
   }, []);
 
-  const postsArray = posts.map((post) => {
-    return (
-      <article key={post.id} className="w-3/5 m-4">
-        <Link to={`/blog/${post.id}`}>
-          <h2>{post.title}</h2>
-          <img src={post.imageUrl} alt={post.title} />
-          <p>{post.text}</p>
-          <small>{post.date}</small>
-          <pre>{post.type}</pre>
-        </Link>
-      </article>
-    );
-  });
+  const postsArray = posts.map((post) => (
+    <article key={post.id} className="w-3/5 m-4">
+      <Link to={`/blog/${post.id}`}>
+        <h2>{post.title}</h2>
+        <img src={post.imageUrl} alt={post.title} />
+        <p>{post.text}</p>
+        <small>{post.date}</small>
+        <pre>{post.type}</pre>
+      </Link>
+    </article>
+  ));
 
   return (
-    <section className="mb-16 grid grid-cols-1 lg:grid-cols-2 justify-items-center">
-      {postsArray}
-    </section>
+    <div>
+      <h1 className="text-center text-3xl font-bold my-6">
+        Here are the blog posts
+      </h1>
+      <section className="mb-16 grid grid-cols-1 lg:grid-cols-2 justify-items-center">
+        {postsArray}
+      </section>
+    </div>
   );
 }
 
