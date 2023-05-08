@@ -6,6 +6,8 @@ import Post from "./pages/Posts/Post";
 import ProfileLayout from "./components/ProfileLayout";
 import Profile from "./pages/Profile/Profile";
 import Details from "./pages/Profile/Details";
+import ProfilePosts from "./pages/Profile/ProfilePosts";
+import ProfilePost from "./pages/Profile/ProfilePost";
 import Comments from "./pages/Profile/Comments";
 import Layout from "./components/Layout";
 import "../server";
@@ -22,6 +24,8 @@ function App() {
           <Route path="profile" element={<ProfileLayout />}>
             <Route index element={<Profile />} />
             <Route path="details" element={<Details />} />
+            <Route path="blog" element={<ProfilePosts />} />
+            <Route path="blog/:id" element={<ProfilePost />} />
             <Route path="comments" element={<Comments />} />
           </Route>
         </Route>

@@ -1,24 +1,50 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function ProfileLayout() {
   return (
     <section>
       <nav className="flex justify-start 	items-baseline my-1 p-2 font-semibold">
-        <Link className="mx-1 hover:opacity-80 hover:underline" to="/profile">
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "mx-1 opacity-60 underline"
+              : "mx-1 hover:opacity-70 hover:underline"
+          }
+          to="/profile"
+          end
+        >
           Profile
-        </Link>
-        <Link
-          className="mx-1 hover:opacity-80 hover:underline"
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "mx-1 opacity-60 underline"
+              : "mx-1 hover:opacity-70 hover:underline"
+          }
           to="/profile/details"
         >
           Details
-        </Link>
-        <Link
-          className="mx-1 hover:opacity-80 hover:underline"
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "mx-1 opacity-60 underline"
+              : "mx-1 hover:opacity-70 hover:underline"
+          }
+          to="/profile/blog"
+        >
+          Blog
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "mx-1 opacity-60 underline"
+              : "mx-1 hover:opacity-70 hover:underline"
+          }
           to="/profile/comments"
         >
           Comments
-        </Link>
+        </NavLink>
       </nav>
       <Outlet />
     </section>
