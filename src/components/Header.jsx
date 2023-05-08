@@ -13,8 +13,8 @@ function Header() {
         <Link className="mx-1 hover:opacity-80 hover:underline" to="/projects">
           Projects
         </Link>
-        <Link className="mx-1 hover:opacity-80 hover:underline" to="/about">
-          About
+        <Link className="mx-1 hover:opacity-80 hover:underline" to="/profile">
+          Profile
         </Link>
       </nav>
     </header>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function About() {
+function Profile() {
   return (
     <section className="mx-auto my-16 p-4 text-center border-2 rounded w-fit">
       <h1 className="text-3xl font-bold">Some placeholder title</h1>
@@ -15,4 +15,4 @@ function About() {
   );
 }
 
-export default About;
+export default Profile;

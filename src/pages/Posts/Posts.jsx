@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Blog() {
+function Posts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -34,4 +34,4 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default Posts;
