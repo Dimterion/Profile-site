@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Posts from "./pages/Posts/Posts";
 import Post from "./pages/Posts/Post";
+import ProfileLayout from "./components/ProfileLayout";
 import Profile from "./pages/Profile/Profile";
 import Details from "./pages/Profile/Details";
 import Comments from "./pages/Profile/Comments";
@@ -13,14 +14,16 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/blog" element={<Posts />} />
-          <Route path="/blog/:id" element={<Post />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/profile/details" element={<Details />} />
-          <Route path="/profile/comments" element={<Comments />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="blog" element={<Posts />} />
+          <Route path="blog/:id" element={<Post />} />
+          <Route path="profile" element={<ProfileLayout />}>
+            <Route index element={<Profile />} />
+            <Route path="details" element={<Details />} />
+            <Route path="comments" element={<Comments />} />
+          </Route>
         </Route>
       </Routes>
     </Router>
