@@ -6,7 +6,9 @@ function Layout() {
   return (
     <>
       <Header />
-      <Outlet />
+      <div className="mb-12">
+        <Outlet />
+      </div>
       <Footer />
     </>
   );

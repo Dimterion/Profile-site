@@ -27,7 +27,7 @@ function Posts() {
       <h1 className="text-center text-3xl font-bold my-6">
         Here are the blog posts
       </h1>
-      <section className="mb-16 grid grid-cols-1 lg:grid-cols-2 justify-items-center">
+      <section className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
         {postsArray}
       </section>
     </div>
