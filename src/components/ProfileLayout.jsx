@@ -3,14 +3,14 @@ import { NavLink, Outlet } from "react-router-dom";
 function ProfileLayout() {
   return (
     <section>
-      <nav className="flex justify-start 	items-baseline my-1 p-2 font-semibold">
+      <nav className="flex justify-start 	items-baseline my-3 p-2 font-semibold">
         <NavLink
           className={({ isActive }) =>
             isActive
               ? "mx-1 opacity-60 underline"
               : "mx-1 hover:opacity-70 hover:underline"
           }
-          to="/profile"
+          to="."
           end
         >
           Profile
@@ -21,7 +21,7 @@ function ProfileLayout() {
               ? "mx-1 opacity-60 underline"
               : "mx-1 hover:opacity-70 hover:underline"
           }
-          to="/profile/details"
+          to="details"
         >
           Details
         </NavLink>
@@ -31,7 +31,7 @@ function ProfileLayout() {
               ? "mx-1 opacity-60 underline"
               : "mx-1 hover:opacity-70 hover:underline"
           }
-          to="/profile/blog"
+          to="blog"
         >
           Blog
         </NavLink>
@@ -41,7 +41,7 @@ function ProfileLayout() {
               ? "mx-1 opacity-60 underline"
               : "mx-1 hover:opacity-70 hover:underline"
           }
-          to="/profile/comments"
+          to="comments"
         >
           Comments
         </NavLink>
