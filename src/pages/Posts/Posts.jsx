@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 function Posts() {
+  // eslint-disable-next-line no-unused-vars
+  const [searchParams, setSearchParams] = useSearchParams();
   const [posts, setPosts] = useState([]);
+
+  const typeFilter = searchParams.get("type");
 
   useEffect(() => {
     fetch("/api/posts")
@@ -10,7 +14,11 @@ function Posts() {
       .then((data) => setPosts(data.posts));
   }, []);
 
-  const postsArray = posts.map((post) => (
+  const displayedPosts = typeFilter
+    ? posts.filter((post) => post.type === typeFilter)
+    : posts;
+
+  const postsArray = displayedPosts.map((post) => (
     <article key={post.id} className="w-3/5 m-4">
       <Link to={`/blog/${post.id}`}>
         <h2>{post.title}</h2>
