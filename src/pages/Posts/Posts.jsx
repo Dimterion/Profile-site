@@ -35,6 +35,26 @@ function Posts() {
       <h1 className="text-center text-3xl font-bold my-6">
         Here are the blog posts
       </h1>
+      <div className="text-center">
+        <Link
+          className="mx-1 hover:opacity-70 hover:underline"
+          to="?type=thoughts"
+        >
+          Thoughts
+        </Link>
+        <Link
+          className="mx-1 hover:opacity-70 hover:underline"
+          to="?type=coding"
+        >
+          Coding
+        </Link>
+        <Link className="mx-1 hover:opacity-70 hover:underline" to="?type=life">
+          Life
+        </Link>
+        <Link className="mx-1 hover:opacity-70 hover:underline" to=".">
+          All posts
+        </Link>
+      </div>
       <section className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
         {postsArray}
       </section>
