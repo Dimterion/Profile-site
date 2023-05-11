@@ -15,7 +15,7 @@ function Post() {
   return (
     <div>
       {post ? (
-        <article className="lg:w-2/5 sm:w-3/5 mt-8 mb-16 mx-8">
+        <article className="lg:w-1/5 sm:w-3/5 mt-8 mb-16 mx-8">
           <h2>{post.title}</h2>
           <img src={post.imageUrl} alt={post.title} />
           <p>{post.text}</p>

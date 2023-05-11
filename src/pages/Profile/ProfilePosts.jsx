@@ -11,7 +11,7 @@ function ProfilePosts() {
   }, []);
 
   const postsArray = posts.map((post) => (
-    <article key={post.id} className="w-1/5 m-4">
+    <article key={post.id} className="lg:w-1/5 sm:w-3/5 m-4">
       <Link to={`/profile/blog/${post.id}`}>
         <h2>{post.title}</h2>
         <img src={post.imageUrl} alt={post.title} />
