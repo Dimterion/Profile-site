@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function Post() {
   const params = useParams();
@@ -13,7 +13,14 @@ function Post() {
   }, [params.id]);
 
   return (
-    <div>
+    <div className="mt-6">
+      <Link
+        className="ml-5 hover:opacity-70 hover:underline"
+        to=".."
+        relative="path"
+      >
+        &larr; Back to all posts
+      </Link>
       {post ? (
         <article className="lg:w-1/5 sm:w-3/5 mt-8 mb-16 mx-8">
           <h2>{post.title}</h2>
@@ -23,7 +30,7 @@ function Post() {
           <pre>{post.type}</pre>
         </article>
       ) : (
-        <h2>Loading...</h2>
+        <h2 className="m-6">Loading...</h2>
       )}
     </div>
   );
