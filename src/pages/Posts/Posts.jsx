@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
 function Posts() {
-  // eslint-disable-next-line no-unused-vars
   const [searchParams, setSearchParams] = useSearchParams();
   const [posts, setPosts] = useState([]);
 
@@ -36,24 +35,30 @@ function Posts() {
         Here are the blog posts
       </h1>
       <div className="text-center">
-        <Link
+        <button
           className="mx-1 hover:opacity-70 hover:underline"
-          to="?type=thoughts"
+          onClick={() => setSearchParams({ type: "thoughts" })}
         >
           Thoughts
-        </Link>
-        <Link
+        </button>
+        <button
           className="mx-1 hover:opacity-70 hover:underline"
-          to="?type=coding"
+          onClick={() => setSearchParams({ type: "coding" })}
         >
           Coding
-        </Link>
-        <Link className="mx-1 hover:opacity-70 hover:underline" to="?type=life">
+        </button>
+        <button
+          className="mx-1 hover:opacity-70 hover:underline"
+          onClick={() => setSearchParams({ type: "life" })}
+        >
           Life
-        </Link>
-        <Link className="mx-1 hover:opacity-70 hover:underline" to=".">
+        </button>
+        <button
+          className="mx-1 hover:opacity-70 hover:underline"
+          onClick={() => setSearchParams({})}
+        >
           All posts
-        </Link>
+        </button>
       </div>
       <section className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
         {postsArray}
