@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { getPosts } from "../../api";
 
 function Posts() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -8,9 +9,12 @@ function Posts() {
   const typeFilter = searchParams.get("type");
 
   useEffect(() => {
-    fetch("/api/posts")
-      .then((res) => res.json())
-      .then((data) => setPosts(data.posts));
+    async function loadPosts() {
+      const data = await getPosts();
+      setPosts(data);
+    }
+
+    loadPosts();
   }, []);
 
   const displayedPosts = typeFilter
