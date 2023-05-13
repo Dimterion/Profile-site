@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 
 function Post() {
   const params = useParams();
+  const location = useLocation();
 
   const [post, setPost] = useState(null);
 
@@ -12,14 +13,18 @@ function Post() {
       .then((data) => setPost(data.posts));
   }, [params.id]);
 
+  // Checking if location.state exists (and then checking for the search property); otherwise - "".
+  const search = location.state?.search || "";
+  const type = location.state?.type || "all";
+
   return (
     <div className="mt-6">
       <Link
         className="ml-5 hover:opacity-70 hover:underline"
-        to=".."
+        to={`..${search}`}
         relative="path"
       >
-        &larr; Back to all posts
+        &larr; Back to {type} posts
       </Link>
       {post ? (
         <article className="lg:w-1/5 sm:w-3/5 mt-8 mb-16 mx-8">
