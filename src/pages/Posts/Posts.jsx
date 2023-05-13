@@ -5,13 +5,23 @@ import { getPosts } from "../../api";
 function Posts() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const typeFilter = searchParams.get("type");
 
   useEffect(() => {
     async function loadPosts() {
-      const data = await getPosts();
-      setPosts(data);
+      setLoading(true);
+      try {
+        const data = await getPosts();
+        setPosts(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+      setLoading(false);
     }
 
     loadPosts();
@@ -35,6 +45,14 @@ function Posts() {
       </Link>
     </article>
   ));
+
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+
+  if (error) {
+    return <h2>There was an error: {error.message}.</h2>;
+  }
 
   return (
     <div>

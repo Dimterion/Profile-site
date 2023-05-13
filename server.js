@@ -1,4 +1,5 @@
-import { createServer, Model } from "miragejs";
+// eslint-disable-next-line no-unused-vars
+import { createServer, Model, Response } from "miragejs";
 
 createServer({
   models: {
@@ -64,6 +65,9 @@ createServer({
 
     // eslint-disable-next-line no-unused-vars
     this.get("/posts", (schema, request) => {
+      // Error on posts loading
+      // return new Response(400, {}, { error: "Error fetching data" });
+      // Normal posts loading
       return schema.posts.all();
     });
 
