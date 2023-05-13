@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Posts from "./pages/Posts/Posts";
 import Post from "./pages/Posts/Post";
-import ProfileLayout from "./components/ProfileLayout";
 import Profile from "./pages/Profile/Profile";
 import Details from "./pages/Profile/Details";
 import ProfilePosts from "./pages/Profile/ProfilePosts";
@@ -12,7 +11,9 @@ import ProfilePostDetails from "./pages/Profile/ProfilePostDetails";
 import ProfilePostTags from "./pages/Profile/ProfilePostTags";
 import ProfilePostPhotos from "./pages/Profile/ProfilePostPhotos";
 import Comments from "./pages/Profile/Comments";
+import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
+import ProfileLayout from "./components/ProfileLayout";
 import "../server";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             </Route>
             <Route path="comments" element={<Comments />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Router>
