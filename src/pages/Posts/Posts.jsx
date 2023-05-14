@@ -1,31 +1,20 @@
-import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 import { getPosts } from "../../api";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader() {
+  return getPosts();
+}
 
 function Posts() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null);
 
+  const posts = useLoaderData();
+
   const typeFilter = searchParams.get("type");
-
-  useEffect(() => {
-    async function loadPosts() {
-      setLoading(true);
-      try {
-        const data = await getPosts();
-        setPosts(data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-      setLoading(false);
-    }
-
-    loadPosts();
-  }, []);
 
   const displayedPosts = typeFilter
     ? posts.filter((post) => post.type === typeFilter)
@@ -45,10 +34,6 @@ function Posts() {
       </Link>
     </article>
   ));
-
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
 
   if (error) {
     return <h2>There was an error: {error.message}.</h2>;
