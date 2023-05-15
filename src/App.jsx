@@ -17,6 +17,7 @@ import ProfilePostTags from "./pages/Profile/ProfilePostTags";
 import ProfilePostPhotos from "./pages/Profile/ProfilePostPhotos";
 import Comments from "./pages/Profile/Comments";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
 import Error from "./components/Error";
 import Layout from "./components/Layout";
 import ProfileLayout from "./components/ProfileLayout";
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="projects" element={<Projects />} />
+      <Route path="login" element={<Login />} />
       <Route
         path="blog"
         element={<Posts />}
