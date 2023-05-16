@@ -44,7 +44,9 @@ function Login() {
           placeholder="Password"
           value={loginFormData.password}
         />
-        <button className="mt-6 border-2 p-2 rounded">Log In</button>
+        <button className="mt-6 border-2 p-2 rounded hover:opacity-70">
+          Log In
+        </button>
       </form>
     </section>
   );

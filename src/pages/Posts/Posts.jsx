@@ -44,7 +44,7 @@ function Posts() {
       <h1 className="text-center text-3xl font-bold my-6">
         Here are the blog posts
       </h1>
-      <div className="text-center">
+      <div className="text-center border-2 w-fit m-auto px-2 py-1">
         <button
           className={`${
             typeFilter === "thoughts"
