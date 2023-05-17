@@ -1,17 +1,14 @@
-import { useState, useEffect } from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useLoaderData } from "react-router-dom";
+import { getPosts } from "../../api";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader({ params }) {
+  return getPosts(params.id);
+}
 
 function Post() {
-  const params = useParams();
   const location = useLocation();
-
-  const [post, setPost] = useState(null);
-
-  useEffect(() => {
-    fetch(`/api/posts/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setPost(data.posts));
-  }, [params.id]);
+  const post = useLoaderData();
 
   // Checking if location.state exists (and then checking for the search property); otherwise - "".
   const search = location.state?.search || "";
@@ -26,17 +23,13 @@ function Post() {
       >
         &larr; Back to {type} posts
       </Link>
-      {post ? (
-        <article className="lg:w-1/5 sm:w-3/5 mt-8 mb-16 mx-8">
-          <h2>{post.title}</h2>
-          <img src={post.imageUrl} alt={post.title} />
-          <p>{post.text}</p>
-          <small>{post.date}</small>
-          <pre>{post.type}</pre>
-        </article>
-      ) : (
-        <h2 className="m-6">Loading...</h2>
-      )}
+      <article className="lg:w-1/5 sm:w-3/5 mt-8 mb-16 mx-8">
+        <h2>{post.title}</h2>
+        <img src={post.imageUrl} alt={post.title} />
+        <p>{post.text}</p>
+        <small>{post.date}</small>
+        <pre>{post.type}</pre>
+      </article>
     </div>
   );
 }

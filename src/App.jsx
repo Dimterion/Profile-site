@@ -7,7 +7,7 @@ import {
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Posts, { loader as postsLoader } from "./pages/Posts/Posts";
-import Post from "./pages/Posts/Post";
+import Post, { loader as postLoader } from "./pages/Posts/Post";
 import Profile from "./pages/Profile/Profile";
 import Details from "./pages/Profile/Details";
 import ProfilePosts from "./pages/Profile/ProfilePosts";
@@ -35,17 +35,65 @@ const router = createBrowserRouter(
         errorElement={<Error />}
         loader={postsLoader}
       />
-      <Route path="blog/:id" element={<Post />} />
+      <Route path="blog/:id" element={<Post />} loader={postLoader} />
       <Route path="profile" element={<ProfileLayout />}>
-        <Route index element={<Profile />} />
-        <Route path="details" element={<Details />} />
-        <Route path="blog" element={<ProfilePosts />} />
-        <Route path="blog/:id" element={<ProfilePost />}>
-          <Route index element={<ProfilePostDetails />} />
-          <Route path="tags" element={<ProfilePostTags />} />
-          <Route path="photos" element={<ProfilePostPhotos />} />
+        <Route
+          index
+          element={<Profile />}
+          loader={async () => {
+            return null;
+          }}
+        />
+        <Route
+          path="details"
+          element={<Details />}
+          loader={async () => {
+            return null;
+          }}
+        />
+        <Route
+          path="blog"
+          element={<ProfilePosts />}
+          loader={async () => {
+            return null;
+          }}
+        />
+        <Route
+          path="blog/:id"
+          element={<ProfilePost />}
+          loader={async () => {
+            return null;
+          }}
+        >
+          <Route
+            index
+            element={<ProfilePostDetails />}
+            loader={async () => {
+              return null;
+            }}
+          />
+          <Route
+            path="tags"
+            element={<ProfilePostTags />}
+            loader={async () => {
+              return null;
+            }}
+          />
+          <Route
+            path="photos"
+            element={<ProfilePostPhotos />}
+            loader={async () => {
+              return null;
+            }}
+          />
         </Route>
-        <Route path="comments" element={<Comments />} />
+        <Route
+          path="comments"
+          element={<Comments />}
+          loader={async () => {
+            return null;
+          }}
+        />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Route>
