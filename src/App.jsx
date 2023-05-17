@@ -10,8 +10,12 @@ import Posts, { loader as postsLoader } from "./pages/Posts/Posts";
 import Post, { loader as postLoader } from "./pages/Posts/Post";
 import Profile from "./pages/Profile/Profile";
 import Details from "./pages/Profile/Details";
-import ProfilePosts from "./pages/Profile/ProfilePosts";
-import ProfilePost from "./pages/Profile/ProfilePost";
+import ProfilePosts, {
+  loader as profilePostsLoader,
+} from "./pages/Profile/ProfilePosts";
+import ProfilePost, {
+  loader as profilePostLoader,
+} from "./pages/Profile/ProfilePost";
 import ProfilePostDetails from "./pages/Profile/ProfilePostDetails";
 import ProfilePostTags from "./pages/Profile/ProfilePostTags";
 import ProfilePostPhotos from "./pages/Profile/ProfilePostPhotos";
@@ -54,16 +58,12 @@ const router = createBrowserRouter(
         <Route
           path="blog"
           element={<ProfilePosts />}
-          loader={async () => {
-            return null;
-          }}
+          loader={profilePostsLoader}
         />
         <Route
           path="blog/:id"
           element={<ProfilePost />}
-          loader={async () => {
-            return null;
-          }}
+          loader={profilePostLoader}
         >
           <Route
             index

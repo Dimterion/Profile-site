@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { getProfilePosts } from "../../api";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader({ params }) {
+  return getProfilePosts(params.id);
+}
 
 function ProfilePosts() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    fetch("/api/profile/posts")
-      .then((res) => res.json())
-      .then((data) => setPosts(data.posts));
-  }, []);
+  const posts = useLoaderData();
 
   const postsArray = posts.map((post) => (
     <article key={post.id} className="lg:w-1/5 sm:w-3/5 m-4">
@@ -24,7 +23,7 @@ function ProfilePosts() {
   return (
     <section>
       <h1 className="text-2xl font-bold m-4">Your Posts</h1>
-      {posts.length > 0 ? <div>{postsArray}</div> : <h2>Loading...</h2>}
+      <article>{postsArray}</article>
     </section>
   );
 }

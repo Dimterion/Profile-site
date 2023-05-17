@@ -1,20 +1,13 @@
-import { useState, useEffect } from "react";
-import { useParams, Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
+import { getProfilePosts } from "../../api";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader({ params }) {
+  return getProfilePosts(params.id);
+}
 
 function ProfilePost() {
-  const params = useParams();
-
-  const [post, setPost] = useState(null);
-
-  useEffect(() => {
-    fetch(`/api/profile/posts/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setPost(data.posts));
-  }, [params.id]);
-
-  if (!post) {
-    return <h2>Loading...</h2>;
-  }
+  const post = useLoaderData();
 
   return (
     <>

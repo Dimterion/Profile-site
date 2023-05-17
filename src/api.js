@@ -29,5 +29,5 @@ export async function getProfilePosts(id) {
 
   const data = await res.json();
 
-  return data.vans;
+  return data.posts;
 }
