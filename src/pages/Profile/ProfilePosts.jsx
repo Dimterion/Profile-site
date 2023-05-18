@@ -1,8 +1,10 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { getProfilePosts } from "../../api";
+import { requireAuth } from "../../utils";
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function loader() {
+export async function loader() {
+  await requireAuth();
   return getProfilePosts();
 }
 

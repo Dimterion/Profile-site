@@ -25,6 +25,7 @@ import Login from "./pages/Login";
 import Error from "./components/Error";
 import Layout from "./components/Layout";
 import ProfileLayout from "./components/ProfileLayout";
+import { requireAuth } from "./utils";
 import "../server";
 
 const router = createBrowserRouter(
@@ -44,16 +45,12 @@ const router = createBrowserRouter(
         <Route
           index
           element={<Profile />}
-          loader={async () => {
-            return null;
-          }}
+          loader={async () => await requireAuth()}
         />
         <Route
           path="details"
           element={<Details />}
-          loader={async () => {
-            return null;
-          }}
+          loader={async () => await requireAuth()}
         />
         <Route
           path="blog"
@@ -68,31 +65,23 @@ const router = createBrowserRouter(
           <Route
             index
             element={<ProfilePostDetails />}
-            loader={async () => {
-              return null;
-            }}
+            loader={async () => await requireAuth()}
           />
           <Route
             path="tags"
             element={<ProfilePostTags />}
-            loader={async () => {
-              return null;
-            }}
+            loader={async () => await requireAuth()}
           />
           <Route
             path="photos"
             element={<ProfilePostPhotos />}
-            loader={async () => {
-              return null;
-            }}
+            loader={async () => await requireAuth()}
           />
         </Route>
         <Route
           path="comments"
           element={<Comments />}
-          loader={async () => {
-            return null;
-          }}
+          loader={async () => await requireAuth()}
         />
       </Route>
       <Route path="*" element={<NotFound />} />
