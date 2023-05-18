@@ -2,8 +2,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import { getProfilePosts } from "../../api";
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function loader({ params }) {
-  return getProfilePosts(params.id);
+export function loader() {
+  return getProfilePosts();
 }
 
 function ProfilePosts() {
