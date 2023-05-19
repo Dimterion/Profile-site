@@ -1,12 +1,18 @@
 import { useState } from "react";
-// eslint-disable-next-line no-unused-vars
-import { useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader({ request }) {
+  return new URL(request.url).searchParams.get("message");
+}
 
 function Login() {
   const [loginFormData, setLoginFormData] = useState({
     email: "",
     password: "",
   });
+
+  const message = useLoaderData();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -24,6 +30,7 @@ function Login() {
   return (
     <section className="text-center">
       <h2 className="mt-6 text-2xl font-bold">Sign in to your account</h2>
+      {message && <h3 className="mt-6 text-xl font-bold">{message}</h3>}
       <form
         className="flex flex-col w-3/4 max-w-sm mx-auto mt-6"
         onSubmit={handleSubmit}
