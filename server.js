@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-import { createServer, Model, Response } from "miragejs";
+import { createServer, Model } from "miragejs";
 
 createServer({
   models: {
@@ -63,8 +62,7 @@ createServer({
     this.namespace = "api";
     this.logging = false;
 
-    // eslint-disable-next-line no-unused-vars
-    this.get("/posts", (schema, request) => {
+    this.get("/posts", (schema) => {
       // Error on posts loading
       // return new Response(400, {}, { error: "Error fetching data" });
       // Normal posts loading
@@ -76,8 +74,7 @@ createServer({
       return schema.posts.find(id);
     });
 
-    // eslint-disable-next-line no-unused-vars
-    this.get("/profile/posts", (schema, request) => {
+    this.get("/profile/posts", (schema) => {
       return schema.posts.where({ profileId: "123" });
     });
 
