@@ -12,12 +12,19 @@ function Login() {
     email: "",
     password: "",
   });
+  const [status, setStatus] = useState("idle");
+  const [error, setError] = useState(null);
 
   const message = useLoaderData();
 
   function handleSubmit(e) {
     e.preventDefault();
-    loginUser(loginFormData).then((data) => console.log(data));
+    setStatus("submitting");
+    setError(null);
+    loginUser(loginFormData)
+      .then((data) => console.log(data))
+      .catch((err) => setError(err))
+      .finally(() => setStatus("idle"));
   }
 
   function handleChange(e) {
@@ -32,6 +39,7 @@ function Login() {
     <section className="text-center">
       <h2 className="mt-6 text-2xl font-bold">Sign in to your account</h2>
       {message && <h3 className="mt-6 text-xl font-bold">{message}</h3>}
+      {error && <h3 className="mt-6 text-xl font-bold">{error.message}</h3>}
       <form
         className="flex flex-col w-3/4 max-w-sm mx-auto mt-6"
         onSubmit={handleSubmit}
@@ -52,8 +60,11 @@ function Login() {
           placeholder="Password"
           value={loginFormData.password}
         />
-        <button className="mt-6 border-2 p-2 rounded hover:opacity-70">
-          Log In
+        <button
+          disabled={status === "submitting"}
+          className="mt-6 border-2 p-2 rounded hover:opacity-70"
+        >
+          {status === "submitting" ? "Logging in..." : "Log In"}
         </button>
       </form>
     </section>

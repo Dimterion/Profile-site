@@ -1,4 +1,4 @@
-import { createServer, Model } from "miragejs";
+import { createServer, Model, Response } from "miragejs";
 
 // Testing purposes only: variables for login
 const pass = import.meta.env.VITE_PASSWORD;
@@ -102,7 +102,11 @@ createServer({
       const foundUser = schema.users.findBy({ email, password });
 
       if (!foundUser) {
-        return new Response(401, {}, { message: "User not found" });
+        return new Response(
+          401,
+          {},
+          { message: "Please check your credentials" }
+        );
       }
 
       foundUser.password = undefined;
