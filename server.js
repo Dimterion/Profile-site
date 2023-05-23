@@ -1,8 +1,14 @@
 import { createServer, Model } from "miragejs";
 
+// Testing purposes only: variables for login
+const pass = import.meta.env.VITE_PASSWORD;
+const email = import.meta.env.VITE_EMAIL;
+const name = import.meta.env.VITE_NAME;
+
 createServer({
   models: {
     posts: Model,
+    users: Model,
   },
 
   seeds(server) {
@@ -56,6 +62,13 @@ createServer({
       type: "coding",
       profileId: "123",
     });
+    // Testing purposes only: data for authentication
+    server.create("user", {
+      id: "123",
+      email: email,
+      password: pass,
+      name: name,
+    });
   },
 
   routes() {
@@ -81,6 +94,23 @@ createServer({
     this.get("/profile/posts/:id", (schema, request) => {
       const id = request.params.id;
       return schema.posts.findBy({ id, profileId: "123" });
+    });
+    // Testing purposes only: user login
+    this.post("/login", (schema, request) => {
+      const { email, password } = JSON.parse(request.requestBody);
+
+      const foundUser = schema.users.findBy({ email, password });
+
+      if (!foundUser) {
+        return new Response(401, {}, { message: "User not found" });
+      }
+
+      foundUser.password = undefined;
+
+      return {
+        user: foundUser,
+        token: "Testing authentication token",
+      };
     });
   },
 });

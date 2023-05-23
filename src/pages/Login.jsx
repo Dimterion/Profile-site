@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { loginUser } from "../api";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function loader({ request }) {
@@ -16,7 +17,7 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(loginFormData);
+    loginUser(loginFormData).then((data) => console.log(data));
   }
 
   function handleChange(e) {
