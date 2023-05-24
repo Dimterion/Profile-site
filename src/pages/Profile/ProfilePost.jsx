@@ -3,8 +3,8 @@ import { getProfilePosts } from "../../api";
 import { requireAuth } from "../../utils";
 
 // eslint-disable-next-line react-refresh/only-export-components
-export async function loader({ params }) {
-  await requireAuth();
+export async function loader({ params, request }) {
+  await requireAuth(request);
   return getProfilePosts(params.id);
 }
 

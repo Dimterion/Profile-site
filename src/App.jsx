@@ -53,12 +53,12 @@ const router = createBrowserRouter(
         <Route
           index
           element={<Profile />}
-          loader={async () => await requireAuth()}
+          loader={async ({ request }) => await requireAuth(request)}
         />
         <Route
           path="details"
           element={<Details />}
-          loader={async () => await requireAuth()}
+          loader={async ({ request }) => await requireAuth(request)}
         />
         <Route
           path="blog"
@@ -73,23 +73,23 @@ const router = createBrowserRouter(
           <Route
             index
             element={<ProfilePostDetails />}
-            loader={async () => await requireAuth()}
+            loader={async ({ request }) => await requireAuth(request)}
           />
           <Route
             path="tags"
             element={<ProfilePostTags />}
-            loader={async () => await requireAuth()}
+            loader={async ({ request }) => await requireAuth(request)}
           />
           <Route
             path="photos"
             element={<ProfilePostPhotos />}
-            loader={async () => await requireAuth()}
+            loader={async ({ request }) => await requireAuth(request)}
           />
         </Route>
         <Route
           path="comments"
           element={<Comments />}
-          loader={async () => await requireAuth()}
+          loader={async ({ request }) => await requireAuth(request)}
         />
       </Route>
       <Route path="*" element={<NotFound />} />
