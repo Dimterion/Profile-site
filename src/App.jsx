@@ -48,7 +48,12 @@ const router = createBrowserRouter(
         errorElement={<Error />}
         loader={postsLoader}
       />
-      <Route path="blog/:id" element={<Post />} loader={postLoader} />
+      <Route
+        path="blog/:id"
+        element={<Post />}
+        errorElement={<Error />}
+        loader={postLoader}
+      />
       <Route path="profile" element={<ProfileLayout />}>
         <Route
           index
@@ -63,11 +68,13 @@ const router = createBrowserRouter(
         <Route
           path="blog"
           element={<ProfilePosts />}
+          errorElement={<Error />}
           loader={profilePostsLoader}
         />
         <Route
           path="blog/:id"
           element={<ProfilePost />}
+          errorElement={<Error />}
           loader={profilePostLoader}
         >
           <Route

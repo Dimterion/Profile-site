@@ -1,4 +1,4 @@
-import { useState, Suspense } from "react";
+import { Suspense } from "react";
 import {
   Link,
   Await,
@@ -15,15 +15,9 @@ export function loader() {
 
 function Posts() {
   const [searchParams, setSearchParams] = useSearchParams();
-  // eslint-disable-next-line no-unused-vars
-  const [error, setError] = useState(null);
   const dataPromise = useLoaderData();
 
   const typeFilter = searchParams.get("type");
-
-  if (error) {
-    return <h2>There was an : {error.message}.</h2>;
-  }
 
   function renderPostElements(posts) {
     const displayedPosts = typeFilter
