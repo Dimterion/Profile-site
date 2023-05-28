@@ -74,6 +74,7 @@ createServer({
   routes() {
     this.namespace = "api";
     this.logging = false;
+    this.passthrough("https://firestore.googleapis.com/**");
 
     this.get("/posts", (schema) => {
       // Error on posts loading
