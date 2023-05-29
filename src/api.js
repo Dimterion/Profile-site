@@ -1,6 +1,12 @@
 // Firebase setup
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+} from "firebase/firestore";
 // import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -26,8 +32,16 @@ export async function getPosts() {
     ...doc.data(),
     id: doc.id,
   }));
-  console.log(dataArr);
   return dataArr;
+}
+
+export async function getPost(id) {
+  const docRef = doc(db, "posts", id);
+  const postSnapshot = await getDoc(docRef);
+  return {
+    ...postSnapshot.data(),
+    id: postSnapshot.id,
+  };
 }
 
 // MirageJS setup
