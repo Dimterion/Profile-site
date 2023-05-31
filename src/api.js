@@ -9,7 +9,6 @@ import {
   getDoc,
   getDocs,
 } from "firebase/firestore";
-// import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API,
@@ -23,7 +22,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-// const analytics = getAnalytics(app);
 const postsCollectionRef = collection(db, "posts");
 
 export async function getPosts() {
