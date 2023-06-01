@@ -52,7 +52,7 @@ export async function getProfilePosts() {
   return dataArr;
 }
 
-// MirageJS setup
+// MirageJS setup for reference
 // export async function getPosts(id) {
 //   const url = id ? `/api/posts/${id}` : "/api/posts";
 //   const res = await fetch(url);
