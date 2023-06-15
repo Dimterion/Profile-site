@@ -4,11 +4,13 @@
 
 @layer base {
   :root {
-    --background: #333;
-    --color: #fff;
+    --background: #001d3d;
+    --color: #caf0f8;
+    --secondaryBackground: #003566;
 
     background-color: var(--background);
     color: var(--color);
+    font-family: "Arimo", sans-serif;
     position: relative;
     min-height: 100vh;
   }

@@ -8,7 +8,7 @@ function Header() {
   }
 
   return (
-    <header className="flex justify-between 	items-center my-1 p-2 font-semibold border-b-2">
+    <header className="flex justify-between 	items-center p-2 font-semibold border-b-2 bg-secondaryBackground">
       <Link className="text-lg" to="/">
         @Dimterion
       </Link>

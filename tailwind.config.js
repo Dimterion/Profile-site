@@ -6,6 +6,7 @@ export default {
     colors: {
       color: "var(--color)",
       background: "var(--background)",
+      secondaryBackground: "var(--secondaryBackground)",
     },
   },
   plugins: [],
