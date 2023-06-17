@@ -1,17 +1,5 @@
 import { Suspense } from "react";
-import {
-  Link,
-  Await,
-  useSearchParams,
-  useLoaderData,
-  defer,
-} from "react-router-dom";
-import { getPosts } from "../../api";
-
-// eslint-disable-next-line react-refresh/only-export-components
-export function loader() {
-  return defer({ posts: getPosts() });
-}
+import { Link, Await, useSearchParams, useLoaderData } from "react-router-dom";
 
 function Posts() {
   const [searchParams, setSearchParams] = useSearchParams();

@@ -6,7 +6,8 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
-import Posts, { loader as postsLoader } from "./pages/Posts/Posts";
+import Posts from "./pages/Posts/Posts";
+import { postsLoader } from "./loaders";
 import Post, { loader as postLoader } from "./pages/Posts/Post";
 import Profile from "./pages/Profile/Profile";
 import Details from "./pages/Profile/Details";
