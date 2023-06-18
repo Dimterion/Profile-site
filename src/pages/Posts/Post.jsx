@@ -1,10 +1,4 @@
 import { Link, useLocation, useLoaderData } from "react-router-dom";
-import { getPost } from "../../api";
-
-// eslint-disable-next-line react-refresh/only-export-components
-export function loader({ params }) {
-  return getPost(params.id);
-}
 
 function Post() {
   const location = useLocation();

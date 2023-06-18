@@ -1,13 +1,5 @@
 import { Suspense } from "react";
-import { Link, Await, useLoaderData, defer } from "react-router-dom";
-import { getProfilePosts } from "../../api";
-import { requireAuth } from "../../utils";
-
-// eslint-disable-next-line react-refresh/only-export-components
-export async function loader({ request }) {
-  await requireAuth(request);
-  return defer({ posts: getProfilePosts() });
-}
+import { Link, Await, useLoaderData } from "react-router-dom";
 
 function ProfilePosts() {
   const dataPromise = useLoaderData();

@@ -2,33 +2,8 @@ import {
   useLoaderData,
   useNavigation,
   useActionData,
-  redirect,
   Form,
 } from "react-router-dom";
-import { loginUser } from "../api";
-
-// eslint-disable-next-line react-refresh/only-export-components
-export function loader({ request }) {
-  return new URL(request.url).searchParams.get("message");
-}
-
-// eslint-disable-next-line react-refresh/only-export-components
-export async function action({ request }) {
-  const formData = await request.formData();
-  const email = formData.get("email");
-  const password = formData.get("password");
-  const pathname =
-    new URL(request.url).searchParams.get("redirectTo") || "/profile";
-
-  try {
-    // eslint-disable-next-line no-unused-vars
-    const data = await loginUser({ email, password });
-    localStorage.setItem("loggedin", true);
-    return redirect(pathname);
-  } catch (error) {
-    return error.message;
-  }
-}
 
 function Login() {
   const errorMessage = useActionData();
