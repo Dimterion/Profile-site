@@ -13,7 +13,7 @@ function Posts() {
       : posts;
 
     const postsArray = displayedPosts.map((post) => (
-      <article key={post.id} className="w-3/5 m-4">
+      <article key={post.id} className="w-2/4 m-4">
         <Link
           to={post.id}
           state={{
@@ -21,11 +21,9 @@ function Posts() {
             type: typeFilter,
           }}
         >
-          <h2>{post.title}</h2>
+          <h2 className="text-center font-bold text-lg mb-2">{post.title}</h2>
           <img src={post.imageUrl} alt={post.title} />
-          <p>{post.text}</p>
-          <small>{post.date}</small>
-          <pre>{post.type}</pre>
+          <pre className="mt-2">{post.type}</pre>
         </Link>
       </article>
     ));
@@ -43,6 +41,7 @@ function Posts() {
           >
             Thoughts
           </button>
+          |
           <button
             className={`${
               typeFilter === "coding"
@@ -53,6 +52,7 @@ function Posts() {
           >
             Coding
           </button>
+          |
           <button
             className={`${
               typeFilter === "life"
@@ -64,12 +64,15 @@ function Posts() {
             Life
           </button>
           {typeFilter && (
-            <button
-              className="mx-1 hover:opacity-70 hover:underline"
-              onClick={() => setSearchParams({})}
-            >
-              All posts
-            </button>
+            <>
+              |
+              <button
+                className="mx-1 hover:opacity-70 hover:underline"
+                onClick={() => setSearchParams({})}
+              >
+                All posts
+              </button>
+            </>
           )}
         </div>
         <section className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
