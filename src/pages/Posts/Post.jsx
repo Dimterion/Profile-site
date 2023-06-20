@@ -18,11 +18,13 @@ function Post() {
         &larr; Back to {type} posts
       </Link>
       <article className="lg:w-1/5 sm:w-3/5 mt-8 mb-16 mx-8">
-        <h2>{post.title}</h2>
-        <img src={post.imageUrl} alt={post.title} />
+        <h2 className="text-center font-bold text-lg mb-2">{post.title}</h2>
+        <img className="rounded mb-2" src={post.imageUrl} alt={post.title} />
         <p>{post.text}</p>
         <small>{post.date}</small>
-        <pre>{post.type}</pre>
+        <pre className="mt-2 bg-secondaryBackground w-fit px-2 rounded">
+          {post.type}
+        </pre>
       </article>
     </div>
   );

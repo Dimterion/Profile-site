@@ -13,7 +13,7 @@ function Posts() {
       : posts;
 
     const postsArray = displayedPosts.map((post) => (
-      <article key={post.id} className="w-2/4 m-4">
+      <article key={post.id} className="w-2/4 m-4 hover:opacity-90">
         <Link
           to={post.id}
           state={{
@@ -22,15 +22,17 @@ function Posts() {
           }}
         >
           <h2 className="text-center font-bold text-lg mb-2">{post.title}</h2>
-          <img src={post.imageUrl} alt={post.title} />
-          <pre className="mt-2">{post.type}</pre>
+          <img className="rounded" src={post.imageUrl} alt={post.title} />
+          <pre className="mt-2 bg-secondaryBackground w-fit px-2 rounded">
+            {post.type}
+          </pre>
         </Link>
       </article>
     ));
 
     return (
       <>
-        <div className="text-center border-2 w-fit m-auto px-2 py-1">
+        <div className="text-center border-2 w-fit m-auto px-2 py-1 rounded">
           <button
             className={`${
               typeFilter === "thoughts"
