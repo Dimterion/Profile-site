@@ -20,11 +20,11 @@ function Post() {
       <article className="lg:w-1/5 sm:w-3/5 mt-8 mb-16 mx-8">
         <h2 className="text-center font-bold text-lg mb-2">{post.title}</h2>
         <img className="rounded mb-2" src={post.imageUrl} alt={post.title} />
-        <p>{post.text}</p>
-        <small>{post.date}</small>
-        <pre className="mt-2 bg-secondaryBackground w-fit px-2 rounded">
+        <pre className="my-2 bg-secondaryBackground w-fit px-2 rounded">
           {post.type}
         </pre>
+        <small>{post.date}</small>
+        <p className="mt-2">{post.text}</p>
       </article>
     </div>
   );
