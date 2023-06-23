@@ -9,7 +9,7 @@ function ProfilePosts() {
       <article key={post.id} className="lg:w-1/5 sm:w-3/5 m-4">
         <Link to={post.id}>
           <h2>{post.title}</h2>
-          <img src={post.imageUrl} alt={post.title} />
+          <img className="rounded" src={post.imageUrl} alt={post.title} />
           <small>{post.date}</small>
           <pre>{post.type}</pre>
         </Link>

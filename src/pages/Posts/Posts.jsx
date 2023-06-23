@@ -32,7 +32,7 @@ function Posts() {
 
     return (
       <>
-        <div className="text-center border-2 w-fit m-auto px-2 py-1 rounded">
+        <div className="text-center border-2 w-fit m-auto p-2 rounded">
           <button
             className={`${
               typeFilter === "thoughts"

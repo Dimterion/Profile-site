@@ -14,7 +14,7 @@ function ProfilePost() {
       </Link>
       <article className="lg:w-2/5 sm:w-3/5 mt-8 mb-16 mx-8">
         <h2 className="text-2xl font-bold">{post.title}</h2>
-        <img className="w-4/5" src={post.imageUrl} alt={post.title} />
+        <img className="w-3/5 rounded" src={post.imageUrl} alt={post.title} />
         <small>{post.date}</small>
         <nav className="flex justify-start 	items-baseline my-3 p-2 font-semibold">
           <NavLink
