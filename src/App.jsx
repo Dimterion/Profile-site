@@ -7,27 +7,28 @@ import {
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Posts from "./pages/Posts/Posts";
-import { postsLoader } from "./loaders";
 import Post from "./pages/Posts/Post";
-import { postLoader } from "./loaders";
 import Profile from "./pages/Profile/Profile";
 import Details from "./pages/Profile/Details";
 import ProfilePosts from "./pages/Profile/ProfilePosts";
-import { profilePostsLoader } from "./loaders";
 import ProfilePost from "./pages/Profile/ProfilePost";
-import { profilePostLoader } from "./loaders";
 import ProfilePostDetails from "./pages/Profile/ProfilePostDetails";
 import ProfilePostTags from "./pages/Profile/ProfilePostTags";
 import ProfilePostPhotos from "./pages/Profile/ProfilePostPhotos";
 import Comments from "./pages/Profile/Comments";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
-import { loginLoader } from "./loaders";
-import { loginAction } from "./utils";
 import Error from "./components/Error";
 import Layout from "./components/Layout";
 import ProfileLayout from "./components/ProfileLayout";
-import { requireAuth } from "./utils";
+import {
+  postsLoader,
+  postLoader,
+  profilePostsLoader,
+  profilePostLoader,
+  loginLoader,
+} from "./loaders";
+import { loginAction, requireAuth } from "./utils";
 import "../server";
 
 const router = createBrowserRouter(
