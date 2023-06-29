@@ -1,4 +1,4 @@
-// Using MirageJS to imitate a server temporarily
+// Using MirageJS to imitate a server
 import { createServer, Model, Response } from "miragejs";
 
 // Testing purposes only: variables for login
@@ -80,7 +80,6 @@ createServer({
     this.get("/posts", (schema) => {
       // Error on posts loading
       // return new Response(400, {}, { error: "Error fetching data" });
-      //
       // Normal posts loading
       return schema.posts.all();
     });

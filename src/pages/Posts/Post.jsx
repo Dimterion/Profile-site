@@ -4,7 +4,7 @@ function Post() {
   const location = useLocation();
   const post = useLoaderData();
 
-  // Checking if location.state exists (and then checking for the search property); otherwise - "".
+  // Checking if location.state exists, then checking for the search/type property; otherwise - ""/"all".
   const search = location.state?.search || "";
   const type = location.state?.type || "all";
 
