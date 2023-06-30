@@ -10,12 +10,11 @@ function Post() {
 
   return (
     <div className="mt-6">
-      <Link
-        className="ml-5 hover:opacity-70 hover:underline"
-        to={`..${search}`}
-        relative="path"
-      >
-        &larr; Back to {type} posts
+      <Link className="ml-5" to={`..${search}`} relative="path">
+        &larr;{" "}
+        <span className="hover:opacity-70 hover:underline">
+          Back to {type} posts
+        </span>
       </Link>
       <article className="lg:w-1/5 sm:w-3/5 mt-8 mb-16 mx-8">
         <h2 className="text-center font-bold text-lg mb-2">{post.title}</h2>

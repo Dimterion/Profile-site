@@ -5,12 +5,11 @@ function ProfilePost() {
 
   return (
     <>
-      <Link
-        className="ml-5 hover:opacity-70 hover:underline"
-        to=".."
-        relative="path"
-      >
-        &larr; Back to all posts
+      <Link className="ml-5" to="/profile/blog" relative="path">
+        &larr;{" "}
+        <span className="hover:opacity-70 hover:underline">
+          Back to all posts
+        </span>
       </Link>
       <article className="lg:w-2/5 sm:w-3/5 mt-8 mb-16 mx-8">
         <h2 className="text-2xl font-bold">{post.title}</h2>
