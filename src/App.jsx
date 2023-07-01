@@ -22,6 +22,7 @@ import Error from "./components/Error";
 import Layout from "./components/Layout";
 import ProfileLayout from "./components/ProfileLayout";
 import {
+  projectsLoader,
   postsLoader,
   postLoader,
   profilePostsLoader,
@@ -35,7 +36,12 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path="projects" element={<Projects />} />
+      <Route
+        path="projects"
+        element={<Projects />}
+        errorElement={<Error />}
+        loader={projectsLoader}
+      />
       <Route
         path="login"
         element={<Login />}

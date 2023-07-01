@@ -22,7 +22,17 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const projectsCollectionRef = collection(db, "projects");
 const postsCollectionRef = collection(db, "posts");
+
+export async function getProjects() {
+  const querySnapshot = await getDocs(projectsCollectionRef);
+  const dataArr = querySnapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
+  return dataArr;
+}
 
 export async function getPosts() {
   const querySnapshot = await getDocs(postsCollectionRef);

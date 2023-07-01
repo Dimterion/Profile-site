@@ -1,6 +1,10 @@
 import { defer } from "react-router-dom";
-import { getPosts, getPost, getProfilePosts } from "./api";
+import { getProjects, getPosts, getPost, getProfilePosts } from "./api";
 import { requireAuth } from "./utils";
+
+export function projectsLoader() {
+  return defer({ projects: getProjects() });
+}
 
 export function postsLoader() {
   return defer({ posts: getPosts() });
