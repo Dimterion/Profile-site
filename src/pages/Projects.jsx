@@ -6,7 +6,7 @@ function Projects() {
 
   function renderProjectElements(projects) {
     const projectsArray = projects.map((project) => (
-      <article key={project.id} className="w-2/4 m-4 hover:opacity-90">
+      <article key={project.id} className="w-2/4 m-4">
         <h2>{project.title}</h2>
       </article>
     ));
@@ -19,14 +19,14 @@ function Projects() {
   }
 
   return (
-    <div>
+    <>
       <h1 className="text-center text-3xl font-bold my-6">
         Here are the projects
       </h1>
       <Suspense fallback={<h2>Loading projects...</h2>}>
         <Await resolve={dataPromise.projects}>{renderProjectElements}</Await>
       </Suspense>
-    </div>
+    </>
   );
 }
 

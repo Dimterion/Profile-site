@@ -85,14 +85,14 @@ function Posts() {
   }
 
   return (
-    <div>
+    <>
       <h1 className="text-center text-3xl font-bold my-6">
         Here are the blog posts
       </h1>
       <Suspense fallback={<h2>Loading posts...</h2>}>
         <Await resolve={dataPromise.posts}>{renderPostElements}</Await>
       </Suspense>
-    </div>
+    </>
   );
 }
 
