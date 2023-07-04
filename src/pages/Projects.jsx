@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Link, Await, useSearchParams, useLoaderData } from "react-router-dom";
+import { Await, useSearchParams, useLoaderData } from "react-router-dom";
 
 function Projects() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,21 +13,19 @@ function Projects() {
       : projects;
 
     const projectsArray = displayedProjects.map((project) => (
-      <article key={project.id} className="w-2/4 m-4 hover:opacity-90">
-        <Link
-          to={project.id}
-          state={{
-            search: `?${searchParams.toString()}`,
-            type: typeFilter,
-          }}
+      <article key={project.id} className="w-2/4 m-4">
+        <h2 className="text-center font-bold text-lg mb-2">{project.title}</h2>
+        <pre className="my-2 bg-secondaryBackground w-fit px-2 rounded">
+          {project.type}
+        </pre>
+        <a
+          className="hover:opacity-70 hover:underline cursor-pointer"
+          href="https://github.com/Dimterion"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <h2 className="text-center font-bold text-lg mb-2">
-            {project.title}
-          </h2>
-          <pre className="mt-2 bg-secondaryBackground w-fit px-2 rounded">
-            {project.type}
-          </pre>
-        </Link>
+          Link
+        </a>
       </article>
     ));
 
