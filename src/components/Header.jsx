@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <header className="flex justify-between 	items-center p-2 font-semibold border-b-2 bg-secondaryBackground">
-      <Link className="text-lg" to="/">
+      <Link className="text-lg hover:opacity-70" to="/">
         @Dimterion
       </Link>
       <nav className="grid grid-cols-2 sm:flex">

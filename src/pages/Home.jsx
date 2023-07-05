@@ -9,7 +9,7 @@ function Home() {
         stuff. And then I repeat it all until it works.
       </p>
       <Link
-        className="hover:opacity-80 inline-block p-3 border-2 rounded"
+        className="hover:opacity-70 inline-block p-3 border-2 rounded"
         to="/blog"
       >
         Check out my blog

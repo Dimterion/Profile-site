@@ -13,7 +13,7 @@ function Posts() {
       : posts;
 
     const postsArray = displayedPosts.map((post) => (
-      <article key={post.id} className="w-2/4 m-4 hover:opacity-90">
+      <article key={post.id} className="w-2/4 m-4 hover:opacity-70">
         <Link
           to={post.id}
           state={{
