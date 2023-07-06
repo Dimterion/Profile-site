@@ -12,7 +12,7 @@ function Posts() {
       ? posts.filter((post) => post.type === typeFilter)
       : posts;
 
-    const postsArray = displayedPosts.map((post) => (
+    const postsArray = displayedPosts.toReversed().map((post) => (
       <article key={post.id} className="w-2/4 m-4 hover:opacity-70">
         <Link
           to={post.id}
@@ -86,7 +86,7 @@ function Posts() {
 
   return (
     <>
-      <h1 className="text-center text-3xl font-bold my-6">
+      <h1 className="text-center text-3xl font-bold mb-6">
         Here are the blog posts
       </h1>
       <Suspense fallback={<h2>Loading posts...</h2>}>

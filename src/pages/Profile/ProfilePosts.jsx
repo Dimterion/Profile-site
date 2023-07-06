@@ -5,7 +5,7 @@ function ProfilePosts() {
   const dataPromise = useLoaderData();
 
   function renderPostElements(posts) {
-    const postsArray = posts.map((post) => (
+    const postsArray = posts.toReversed().map((post) => (
       <article key={post.id} className="lg:w-1/5 sm:w-3/5 m-4 hover:opacity-70">
         <Link to={post.id}>
           <h2>{post.title}</h2>
