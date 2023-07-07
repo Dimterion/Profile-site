@@ -86,7 +86,7 @@ function Posts() {
 
   return (
     <>
-      <h1 className="text-center text-3xl font-bold mb-6">
+      <h1 className="text-center text-3xl font-bold my-6">
         Here are the blog posts
       </h1>
       <Suspense fallback={<h2>Loading posts...</h2>}>

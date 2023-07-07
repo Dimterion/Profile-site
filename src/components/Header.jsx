@@ -1,10 +1,12 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 function Header() {
   const isLoggedIn = localStorage.getItem("loggedin");
+  const navigate = useNavigate();
 
   function logOut() {
     localStorage.removeItem("loggedin");
+    navigate("/login");
   }
 
   return (
