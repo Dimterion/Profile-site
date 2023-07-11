@@ -16,6 +16,7 @@ import ProfilePostDetails from "./pages/Profile/ProfilePostDetails";
 import ProfilePostTags from "./pages/Profile/ProfilePostTags";
 import ProfilePostPhotos from "./pages/Profile/ProfilePostPhotos";
 import Comments from "./pages/Profile/Comments";
+import About from "./pages/About/About";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Error from "./components/Error";
@@ -105,6 +106,7 @@ const router = createBrowserRouter(
           loader={async ({ request }) => await requireAuth(request)}
         />
       </Route>
+      <Route path="about" element={<About />}></Route>
       <Route path="*" element={<NotFound />} />
     </Route>
   )
