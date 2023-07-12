@@ -17,11 +17,13 @@ import ProfilePostTags from "./pages/Profile/ProfilePostTags";
 import ProfilePostPhotos from "./pages/Profile/ProfilePostPhotos";
 import Comments from "./pages/Profile/Comments";
 import About from "./pages/About/About";
+import Contact from "./pages/About/Contact";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Error from "./components/Error";
 import Layout from "./components/Layout";
 import ProfileLayout from "./components/ProfileLayout";
+import AboutLayout from "./components/AboutLayout";
 import {
   projectsLoader,
   postsLoader,
@@ -106,7 +108,10 @@ const router = createBrowserRouter(
           loader={async ({ request }) => await requireAuth(request)}
         />
       </Route>
-      <Route path="about" element={<About />}></Route>
+      <Route path="about" element={<AboutLayout />}>
+        <Route index element={<About />} />
+        <Route path="contact" element={<Contact />} />
+      </Route>
       <Route path="*" element={<NotFound />} />
     </Route>
   )
