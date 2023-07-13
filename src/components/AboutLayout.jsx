@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 function AboutLayout() {
   return (
     <section>
-      <nav className="flex justify-start 	items-baseline my-3 p-2 font-semibold">
+      <nav className="flex justify-center 	items-baseline mx-auto my-10 px-4 py-2 font-semibold border-2 rounded w-fit">
         <NavLink
           className={({ isActive }) =>
             isActive
