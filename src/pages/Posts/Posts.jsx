@@ -13,7 +13,7 @@ function Posts() {
       : posts;
 
     const postsArray = displayedPosts.toReversed().map((post) => (
-      <article key={post.id} className="w-2/4 m-4 hover:opacity-70">
+      <article key={post.id} className="w-3/4 m-4 hover:opacity-70">
         <Link
           to={post.id}
           state={{
@@ -77,7 +77,7 @@ function Posts() {
             </>
           )}
         </div>
-        <section className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
+        <section className="grid grid-cols-1 md:grid-cols-3 justify-items-center">
           {postsArray}
         </section>
       </>

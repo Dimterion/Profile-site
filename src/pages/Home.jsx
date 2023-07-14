@@ -6,7 +6,10 @@ function Home() {
       <h1 className="text-3xl font-bold">Hey! I{"'"}m Dmitrii</h1>
       <p className="my-10 text-2xl">
         I code, I learn and I do stuff. Then I re-code, re-learn and re-do
-        stuff. And then I repeat it all until it works.
+        stuff. And then I repeat it all until it works.{" "}
+        <Link className="underline hover:opacity-70" to="/about">
+          About me.
+        </Link>
       </p>
       <Link
         className="hover:opacity-70 inline-block p-3 border-2 rounded"
