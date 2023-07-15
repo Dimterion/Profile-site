@@ -6,7 +6,7 @@ function ProfilePosts() {
 
   function renderPostElements(posts) {
     const postsArray = posts.toReversed().map((post) => (
-      <article key={post.id} className="lg:w-1/5 sm:w-3/5 m-4 hover:opacity-70">
+      <article key={post.id} className="lg:w-3/5 sm:w-3/5 m-4 hover:opacity-70">
         <Link to={post.id}>
           <h2>{post.title}</h2>
           <img className="rounded" src={post.imageUrl} alt={post.title} />
@@ -16,7 +16,11 @@ function ProfilePosts() {
       </article>
     ));
 
-    return <article>{postsArray}</article>;
+    return (
+      <article className="grid grid-cols-1 md:grid-cols-3 justify-items-center">
+        {postsArray}
+      </article>
+    );
   }
 
   return (

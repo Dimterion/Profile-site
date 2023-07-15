@@ -13,7 +13,7 @@ function Projects() {
       : projects;
 
     const projectsArray = displayedProjects.map((project) => (
-      <article key={project.id} className="w-2/4 m-4">
+      <article key={project.id} className="w-2/4 m-6">
         <h2 className="text-center font-bold text-lg mb-2">{project.title}</h2>
         <pre className="my-2 bg-secondaryBackground w-fit px-2 rounded">
           {project.type}
@@ -65,7 +65,7 @@ function Projects() {
             </>
           )}
         </div>
-        <section className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
+        <section className="grid grid-cols-1 md:grid-cols-3 justify-items-center">
           {projectsArray}
         </section>
       </>
